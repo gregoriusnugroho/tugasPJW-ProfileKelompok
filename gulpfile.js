@@ -19,20 +19,20 @@ gulp.task('css', function() {
   return gulp.src(cssSrcPath+cssSrcName)
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(rename('kulina.min.css'))
+    .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(cssDestPath))
 });
 
 gulp.task('js', function() {
   return gulp.src(jsSrcPath)
-    .pipe(concat('kulina.min.js'))
+    .pipe(concat('app.min.js'))
     .pipe(gulp.dest(jsDestPath))
 });
 
 gulp.task('js:prod', function() {
   return gulp.src(jsSrcPath)
-    .pipe(concat('kulina.min.js'))
+    .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(jsDestPath))
 });
